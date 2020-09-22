@@ -1,9 +1,26 @@
 <%- include('partials/header'); -%>
 
 <main role="main" class="flex-shrink-0">
+  <br>
+  <br>
     <div class="container">
-      <h1 class="mt-5"><%= read_row_name %> </h1>
-      <h1 class="mt-5"><%= read_row_addr %> </h1>
+      <table class="table">
+        <tr>
+          <th><p class="mt-5">Name</p></th>
+          <th><p class="mt-5">Address</p></th>
+          <th><p class="mt-5">Button Edit</p></th>
+          <th><p class="mt-5">Button Delete</p></th>
+        </tr>
+        <tr>
+          <td><p class="mt-5"><%= read_row_name[0].name %> </p></td>
+          <td><p class="mt-5"><%= read_row_addr[0].address %> </p></td>
+          <td><button>Edit</button></td>
+          <td><button>Delete</button></td>
+        </tr>
+      </table>
+      <div>
+        <a href="/create"><button>Insert</button></a>
+      </div>
     </div>
 </main>
 

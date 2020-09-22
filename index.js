@@ -26,6 +26,7 @@ var con = mysql.createConnection({
   database: "nodedb",
 });
 
+
 con.connect(function(err) {
   if (err) throw err;
   con.query("SELECT * FROM customers", function (err, result, fields) {
@@ -67,14 +68,18 @@ app.get("/about", function(req, res){
   res.render("about");
 });
 
+app.get("/create", function(req, res){
+  res.render("create");
+})
+
 app.get("/read", function(req, res){
   con.query('SELECT * FROM customers', (err, rows, fields)=>{
     if(err)
       res.render(404);
     else
       res.render("read", {
-      read_row_name: rows[0].name,
-      read_row_addr: rows[0].address
+      read_row_name: rows,
+      read_row_addr: rows
       });
   });
 });
